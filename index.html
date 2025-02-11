@@ -17,27 +17,5 @@
         </div>
         <p>DIBUAT OLEH ILHAM PACARMU PALING KEREN DAN GANTENG AHAHAHAHA😎🙏🏻</p>
     </div>
-    <script>
-        // Cek apakah sudah ada pemutar musik
-        window.onload = function () {
-            if (!document.getElementById("global-music")) {
-                let audio = document.createElement("audio");
-                audio.id = "global-music";
-                audio.src = "music/its you.mp3";
-                audio.controls = true;
-                audio.loop = true;
-                document.body.appendChild(audio);
-    
-                // Ambil status pemutaran dari LocalStorage
-                if (localStorage.getItem("music-playing") === "true") {
-                    audio.play();
-                }
-    
-                // Simpan status pemutaran setiap kali berubah
-                audio.onplay = () => localStorage.setItem("music-playing", "true");
-                audio.onpause = () => localStorage.setItem("music-playing", "false");
-            }
-        };
-    </script>
 </body>
 </html>
