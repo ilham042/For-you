@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foto Kenangan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container foto-container">
+        <h1>📸 GALLERY KITA💗</h1>
+        <div class="gallery">
+            <img src="images/kita1.jpg" alt="Kenangan 1">
+            <img src="images/kita2.jpg" alt="Kenangan 2">
+            <img src="images/kita3.jpg" alt="Kenangan 3">
+            <img src="images/kita4.jpg" alt="Kenangan 4">
+            <img src="images/kita5.jpg" alt="Kenangan 5">
+            <img src="images/kita6.jpg" alt="Kenangan 6">
+        </div>
+        <p>💗TETAP BERSAMA AGAR MAKIN BANYAK GALERI TENTANG KITA💗</p>
+        <a href="index.html" class="back">⬅ Kembali</a>
+    </div>
+    <script>
+        // Cek apakah sudah ada pemutar musik
+        window.onload = function () {
+            if (!document.getElementById("global-music")) {
+                let audio = document.createElement("audio");
+                audio.id = "global-music";
+                audio.src = "music/its you.mp3";
+                audio.controls = true;
+                audio.loop = true;
+                document.body.appendChild(audio);
+    
+                // Ambil status pemutaran dari LocalStorage
+                if (localStorage.getItem("music-playing") === "true") {
+                    audio.play();
+                }
+    
+                // Simpan status pemutaran setiap kali berubah
+                audio.onplay = () => localStorage.setItem("music-playing", "true");
+                audio.onpause = () => localStorage.setItem("music-playing", "false");
+            }
+        };
+    </script>
+</body>
+</html>

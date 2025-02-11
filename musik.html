@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musik Romantis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container musik-container">
+        <h1>🎶 It's You</h1>
+        <button id="play-music">▶ Play</button>
+        <button id="pause-music">⏸ Pause</button>
+        <a href="index.html" class="back">⬅ Kembali</a>
+    </div>
+
+    <script>
+        let audio = document.getElementById("global-music");
+
+        if (!audio) {
+            audio = document.createElement("audio");
+            audio.id = "global-music";
+            audio.src = "music/its you.mp3";
+            audio.controls = true;
+            audio.loop = true;
+            document.body.appendChild(audio);
+        }
+
+        // Play / Pause dari tombol
+        document.getElementById("play-music").onclick = () => {
+            audio.play();
+            localStorage.setItem("music-playing", "true");
+        };
+
+        document.getElementById("pause-music").onclick = () => {
+            audio.pause();
+            localStorage.setItem("music-playing", "false");
+        };
+    </script>
+</body>
+</html>
